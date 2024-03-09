@@ -1,48 +1,34 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+// import e from 'express';
+import React ,{useState}from 'react'
 
-function Usesta() {
 
-  // Usenavigate :- 
 
-  let navigate = useNavigate()
+function Login() {
 
+    
   let [intialvalue, setValue] = useState({
     username: "",
     email: "",
     password: "",
   });
 
+  function loginData(e){
+    e.preventDefault()
+    let user = JSON.parse(localStorage.getItem("Bhavesh"))
+    console.log("UserDtaa",user)
+    // if(){
+
+    // }
 
 
-  // let [intialvalue1, setValue1] = useState()
-
-  // Counter
-  // function handlechange(){
-  //   setValue(intialvalue*2)
-  // }
-
-  // function handleChange(e) {
-  //   setValue({
-  //     ...intialvalue,
-  //     [e.target.name]: e.target.value,
-  //   });
-  // }
-  // function handleChange1(e){
-  //     setValue1(e.target.value)
-  // }
-
-
-  function getData(){
-    localStorage.setItem("Bhavesh",JSON.stringify(intialvalue))
-    navigate("/login")
   }
 
+
+
   return (
-    <>
-      <div></div>
-      <form action="" onSubmit={getData}>
-        <h1>Signup</h1>
+    <div>
+       <form action="" onSubmit={loginData}>
+        <h1>Login Form</h1>
         <input
           type="text"
           placeholder="username"
@@ -67,10 +53,10 @@ function Usesta() {
           }}
           name="password"
         /> <br />
-        <button type="submit"> Signup</button>
+        <button type="submit"> Login</button>
       </form>
-    </>
-  );
+    </div>
+  )
 }
 
-export default Usesta;
+export default Login
